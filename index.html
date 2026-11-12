@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Equilibra: acompanhe seu humor, crie hábitos de autocuidado e encontre orientações sobre bem-estar e saúde mental.">
+  <title>Equilibra — Início</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-root="" data-page="inicio">
+
+  <main id="conteudo" class="container" tabindex="-1">
+
+    <section class="card card-lavender hero" aria-labelledby="saudacao">
+      <p class="hero-date" id="data-hoje"></p>
+      <h1 id="saudacao">Olá</h1>
+      <p class="hero-question">Como você está se sentindo hoje?</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="pages/humor.html">Registrar meu humor</a>
+      </div>
+      <p class="small hero-status" id="humor-hoje"></p>
+    </section>
+
+    <div class="grid grid-2 dash-grid">
+      <section class="card" aria-labelledby="titulo-habitos-hoje">
+        <h2 id="titulo-habitos-hoje">Hábitos de hoje</h2>
+        <p id="habitos-resumo" class="progress-text"></p>
+        <div class="progress" id="habitos-trilha" role="progressbar" aria-label="Progresso dos hábitos de hoje"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-bar" id="habitos-barra"></div>
+        </div>
+        <ul class="dash-habits" id="habitos-lista"></ul>
+        <p><a class="btn btn-small" href="pages/rotina.html" id="habitos-link">Ir para Minha rotina</a></p>
+      </section>
+
+      <section class="card card-mint" aria-labelledby="titulo-sugestao">
+        <h2 id="titulo-sugestao">Para o seu dia</h2>
+        <h3 id="sugestao-titulo"></h3>
+        <p id="sugestao-texto"></p>
+        <div class="suggestion-actions">
+          <button class="btn btn-small" type="button" id="sugestao-add">Adicionar à minha rotina</button>
+          <button class="btn btn-small btn-ghost" type="button" id="sugestao-outra">Outra sugestão</button>
+        </div>
+        <p class="small" id="sugestao-msg" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section aria-labelledby="titulo-atalhos" class="shortcuts">
+      <h2 id="titulo-atalhos">Para onde ir</h2>
+      <div class="grid grid-2">
+        <a class="card shortcut shortcut-mint" href="pages/humor.html">
+          <h3>Meu humor</h3>
+          <p>Registre como você se sente e veja sua semana.</p>
+        </a>
+        <a class="card shortcut shortcut-sky" href="pages/rotina.html">
+          <h3>Minha rotina</h3>
+          <p>Pequenos hábitos de autocuidado, no seu ritmo.</p>
+        </a>
+        <a class="card shortcut shortcut-lavender" href="pages/biblioteca.html">
+          <h3>Biblioteca do bem-estar</h3>
+          <p>Conteúdos de instituições de saúde sobre cuidar de si.</p>
+        </a>
+        <a class="card shortcut shortcut-peach" href="pages/apoio.html">
+          <h3>Apoio e acolhimento</h3>
+          <p>Quando e onde buscar ajuda profissional.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/inicio.js"></script>
+</body>
+</html>

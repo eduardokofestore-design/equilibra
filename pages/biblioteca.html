@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biblioteca do bem-estar: conteúdos de instituições de saúde sobre saúde mental, sono, atividade física e autocuidado.">
+  <title>Biblioteca do bem-estar — Equilibra</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-root="../" data-page="biblioteca">
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <div class="page-header">
+      <h1>Biblioteca do bem-estar</h1>
+      <p>Conteúdos sobre saúde mental, qualidade de vida e autocuidado reunidos a partir de instituições de saúde e organizações reconhecidas. Cada card leva à página oficial da fonte.</p>
+    </div>
+
+    <section class="library-controls" aria-label="Buscar e filtrar conteúdos">
+      <div class="field">
+        <label for="busca">Pesquisar conteúdos</label>
+        <input type="search" id="busca" autocomplete="off" placeholder="Ex.: sono, ansiedade, atividade física">
+      </div>
+
+      <div class="chip-list" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+    </section>
+
+    <p id="resultado" class="muted small library-status" role="status" aria-live="polite"></p>
+
+    <div class="grid grid-2 article-grid" id="artigos"></div>
+
+    <div id="sem-resultados" class="empty-state" hidden>
+      <p>Nenhum conteúdo encontrado com esses filtros.</p>
+      <p><button class="btn btn-small" type="button" id="limpar-filtros">Limpar filtros</button></p>
+    </div>
+
+    <aside class="card card-soft library-note" aria-label="Sobre os conteúdos">
+      <p class="small"><strong>Sobre os conteúdos.</strong> Os links levam a páginas externas de instituições de saúde e organizações reconhecidas, conferidas em 11/11/2026. O material tem caráter informativo e não substitui a orientação de profissionais de saúde. Alguns conteúdos estão em inglês.</p>
+    </aside>
+  </main>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/artigos.js"></script>
+  <script src="../js/biblioteca.js"></script>
+</body>
+</html>

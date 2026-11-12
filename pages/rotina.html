@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crie pequenos hábitos de autocuidado, marque o que você fez hoje e acompanhe seu progresso no Equilibra.">
+  <title>Minha rotina — Equilibra</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-root="../" data-page="rotina">
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <div class="page-header">
+      <h1>Minha rotina</h1>
+      <p>Monte uma rotina de autocuidado do seu jeito. Aqui não há metas obrigatórias nem comparações: o que você fizer hoje já conta.</p>
+    </div>
+
+    <section class="card card-sky progress-card" aria-labelledby="titulo-hoje">
+      <h2 id="titulo-hoje">Hoje</h2>
+      <p id="progresso-texto" class="progress-text"></p>
+      <div class="progress" id="progresso-trilha" role="progressbar" aria-label="Progresso dos hábitos de hoje"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-bar" id="progresso-barra"></div>
+      </div>
+      <p id="progresso-msg" class="small progress-msg"></p>
+    </section>
+
+    <div class="rotina-layout">
+      <section class="card" aria-labelledby="titulo-habitos">
+        <h2 id="titulo-habitos">Meus hábitos</h2>
+
+        <ul class="habit-list" id="lista-habitos"></ul>
+
+        <div id="vazio-habitos" class="empty-state" hidden>
+          <p>Você ainda não escolheu nenhum hábito.</p>
+          <p class="small">Comece por algo pequeno: adicione uma sugestão ou crie o seu.</p>
+        </div>
+      </section>
+
+      <section class="card card-soft" aria-labelledby="titulo-adicionar">
+        <h2 id="titulo-adicionar">Adicionar hábito</h2>
+
+        <form id="form-habito" novalidate>
+          <label for="novo-habito">Novo hábito</label>
+          <div class="inline-form">
+            <input type="text" id="novo-habito" name="habito" maxlength="80" autocomplete="off"
+                   placeholder="Ex.: alongar o corpo" aria-describedby="msg-habito">
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+          </div>
+          <p id="msg-habito" class="small form-error" role="alert"></p>
+        </form>
+
+        <div id="sugestoes-bloco" class="suggestions" hidden>
+          <h3>Sugestões</h3>
+          <div class="chip-list" id="sugestoes"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="history" aria-labelledby="titulo-historico-rotina">
+      <h2 id="titulo-historico-rotina">Histórico de atividades</h2>
+      <p class="muted small">Os últimos dias em que você concluiu alguma atividade.</p>
+      <div id="historico-rotina"></div>
+    </section>
+  </main>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/rotina.js"></script>
+</body>
+</html>

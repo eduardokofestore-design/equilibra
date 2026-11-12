@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Registre como você está se sentindo, acompanhe sua semana e veja seu histórico emocional no Equilibra.">
+  <title>Meu humor — Equilibra</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-root="../" data-page="humor">
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <div class="page-header">
+      <h1>Meu humor</h1>
+      <p>Registre como você está se sentindo, quantas vezes quiser ao longo do dia. É apenas a sua percepção do momento: não existe resposta certa ou errada.</p>
+    </div>
+
+    <div class="humor-layout">
+      <section class="card" aria-labelledby="titulo-registro">
+        <h2 id="titulo-registro">Novo registro</h2>
+
+        <form id="form-humor" novalidate>
+          <fieldset class="mood-picker">
+            <legend>Como você está se sentindo agora?</legend>
+            <div class="mood-options" id="mood-options"></div>
+          </fieldset>
+
+          <p id="erro-humor" class="form-error" role="alert" hidden>Escolha como você está se sentindo para salvar o registro.</p>
+
+          <div class="field">
+            <label for="nota">Gostaria de contar um pouco sobre seu dia? <span class="muted">(opcional)</span></label>
+            <textarea id="nota" name="nota" maxlength="1000" rows="4"></textarea>
+            <p class="small muted field-hint" id="nota-contador">0 / 1000</p>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Salvar registro</button>
+
+          <div id="feedback-humor" class="feedback" role="status" aria-live="polite"></div>
+
+          <p class="small muted note-disclaimer">O registro mostra apenas como você se sentiu e não é um diagnóstico nem uma avaliação clínica.</p>
+        </form>
+      </section>
+
+      <section class="card card-soft" aria-labelledby="titulo-semana">
+        <h2 id="titulo-semana">Sua semana</h2>
+        <p class="muted small" id="resumo-semana"></p>
+        <ul class="mood-chart" id="grafico-semana"></ul>
+      </section>
+    </div>
+
+    <section class="history" aria-labelledby="titulo-historico">
+      <h2 id="titulo-historico" tabindex="-1">Histórico</h2>
+      <div id="historico"></div>
+      <button id="ver-mais" class="btn btn-ghost" type="button" hidden>Ver registros mais antigos</button>
+    </section>
+  </main>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/humor.js"></script>
+</body>
+</html>

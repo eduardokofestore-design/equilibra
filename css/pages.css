@@ -1,0 +1,285 @@
+/* ==========================================================
+   Equilibra — estilos específicos de cada tela
+   Seções: formulários comuns · Início · Humor · Rotina ·
+           Biblioteca · Apoio
+   ========================================================== */
+
+/* ---------- Formulários e elementos comuns às telas ---------- */
+
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { font-weight: 700; padding: 0; margin-bottom: 0.75rem; }
+
+.field { margin-block: 1rem; }
+.field-hint { margin: 0.25rem 0 0; text-align: right; }
+
+.form-error {
+  color: #8a3a2d;
+  background: var(--peach);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.8rem;
+  margin: 0.75rem 0;
+  font-weight: 600;
+}
+.form-error:empty { display: none; }
+
+.chip-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.chip {
+  min-height: 40px;
+  padding: 0.35rem 0.95rem;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #cfc8e3;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.chip:hover { background: var(--surface-soft); }
+.chip[aria-pressed="true"] {
+  background: var(--lavender);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.empty-state p { margin: 0 0 0.5rem; }
+.empty-state p:last-child { margin-bottom: 0; }
+
+.history { margin-top: 2rem; }
+
+/* ---------- Início (dashboard) ---------- */
+
+.hero { padding: 1.75rem 1.5rem; }
+.hero-date { margin: 0 0 0.25rem; color: var(--text-soft); font-weight: 600; }
+.hero h1 { margin-bottom: 0.25rem; }
+.hero-question { font-size: 1.2rem; margin-bottom: 1rem; }
+.hero-actions { margin-bottom: 0.75rem; }
+.hero-status { margin: 0; color: var(--text-soft); }
+
+.dash-grid { margin-top: var(--gap); }
+
+.progress-text { font-weight: 600; margin-bottom: 0.6rem; }
+
+.dash-habits { list-style: none; margin: 1rem 0; padding: 0; }
+.dash-habits li { padding: 0.25rem 0; }
+.dash-habits li.is-done { color: var(--text-soft); }
+
+.suggestion-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1rem 0.5rem; }
+
+.shortcuts { margin-top: 2rem; }
+.shortcut { display: block; text-decoration: none; color: var(--text); transition: transform 0.15s ease; }
+.shortcut:hover { transform: translateY(-2px); color: var(--text); }
+.shortcut h3 { margin-bottom: 0.25rem; }
+.shortcut p { margin: 0; color: var(--text-soft); }
+.shortcut-mint { background: var(--mint); border-color: transparent; }
+.shortcut-sky { background: var(--sky); border-color: transparent; }
+.shortcut-lavender { background: var(--lavender); border-color: transparent; }
+.shortcut-peach { background: var(--peach); border-color: transparent; }
+
+/* ---------- Meu humor ---------- */
+
+.humor-layout { display: grid; gap: var(--gap); grid-template-columns: 1fr; }
+@media (min-width: 860px) {
+  .humor-layout { grid-template-columns: 1.4fr 1fr; align-items: start; }
+}
+
+.mood-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+  gap: 0.6rem;
+}
+
+.mood-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.6rem 0.25rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+}
+.mood-option:hover { background: var(--surface-soft); }
+.mood-option:focus-within { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.mood-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background: var(--mood-color, var(--surface-soft));
+  border: 3px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.mood-option input:checked + .mood-emoji {
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+.mood-option input:checked ~ .mood-label { font-weight: 700; color: var(--accent-strong); }
+.mood-label { font-size: 0.92rem; line-height: 1.2; }
+
+.feedback { margin: 0; }
+.feedback.has-content {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--mint);
+  border-radius: var(--radius-sm);
+}
+.note-disclaimer { margin: 1rem 0 0; }
+
+/* Gráfico semanal */
+.mood-chart { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chart-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr 2rem;
+  align-items: center;
+  gap: 0.6rem;
+}
+.chart-label { font-size: 0.92rem; font-weight: 600; white-space: nowrap; }
+.chart-track {
+  display: block;
+  height: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.chart-bar { display: block; height: 100%; border-radius: 999px; transition: width 0.4s ease; }
+.chart-count { text-align: right; font-weight: 700; }
+
+/* Histórico */
+.history-day { margin-top: 1.25rem; }
+.history-day-title { font-size: 1rem; color: var(--text-soft); margin-bottom: 0.5rem; }
+
+.entry-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+
+.entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 8px solid var(--mood-color, var(--lavender));
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+}
+.entry-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.entry-mood { font-weight: 700; }
+.entry-time { flex: 1; }
+.entry-note { margin: 0.5rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+#ver-mais { margin-top: 1.25rem; }
+
+/* ---------- Minha rotina ---------- */
+
+.progress-card { margin-bottom: var(--gap); }
+.progress-msg { margin: 0.6rem 0 0; }
+
+.rotina-layout { display: grid; gap: var(--gap); grid-template-columns: 1fr; }
+@media (min-width: 860px) {
+  .rotina-layout { grid-template-columns: 1.4fr 1fr; align-items: start; }
+}
+
+.habit-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-soft);
+  border-radius: var(--radius-sm);
+}
+.habit-item input[type="checkbox"] {
+  width: 26px; height: 26px;
+  flex: none;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.habit-item label {
+  flex: 1;
+  margin: 0;
+  font-weight: 500;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.habit-item.is-done { background: var(--mint); }
+.habit-item.is-done label { color: var(--text-soft); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+.inline-form { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.inline-form input { flex: 1 1 180px; width: auto; }
+
+.suggestions { margin-top: 1.5rem; }
+.suggestions h3 { margin-bottom: 0.6rem; }
+
+.day-detail {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  margin-top: 0.6rem;
+}
+.day-detail summary { cursor: pointer; display: flex; gap: 0.6rem; align-items: baseline; }
+.day-detail-title { font-weight: 700; }
+.day-detail ul { margin: 0.6rem 0 0.25rem; padding-left: 1.2rem; }
+
+/* ---------- Biblioteca ---------- */
+
+.library-controls .field { margin-top: 0; }
+.library-status { margin: 1rem 0; min-height: 1.5em; }
+
+.article-card { display: flex; flex-direction: column; gap: 0.6rem; }
+.article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.article-title { font-size: 1.1rem; margin: 0; }
+.article-summary { margin: 0; }
+.article-meta { margin: 0; overflow-wrap: anywhere; }
+.article-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
+
+.library-note { margin-top: 2rem; }
+.library-note p { margin: 0; }
+
+/* ---------- Apoio e acolhimento ---------- */
+
+.crisis { margin-bottom: 2rem; border: 2px solid #f1b9a0; }
+.crisis p:last-child { margin-bottom: 0; }
+.crisis-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
+
+.support-section { margin-top: 2rem; }
+.support-section > p { max-width: 70ch; }
+.support-section .card p:last-child { margin-bottom: 0; }
+
+.plain-list { padding-left: 1.25rem; max-width: 70ch; }
+.plain-list li { margin-bottom: 0.4rem; }
+
+.table-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.contacts { width: 100%; border-collapse: collapse; }
+.contacts th, .contacts td { text-align: left; vertical-align: top; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
+.contacts thead th { background: var(--surface-soft); font-size: 0.9rem; }
+.contacts tbody tr:last-child th, .contacts tbody tr:last-child td { border-bottom: 0; }
+.contacts td:nth-child(2) { font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
+
+/* No celular, cada contato vira um bloco: serviço e número na primeira linha,
+   explicação logo abaixo (evita rolagem horizontal). */
+@media (max-width: 639px) {
+  .contacts thead {
+    position: absolute; width: 1px; height: 1px; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap;
+  }
+  .contacts, .contacts tbody { display: block; }
+  .contacts tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+  }
+  .contacts tbody tr:last-child { border-bottom: 0; }
+  .contacts th, .contacts td { display: block; border: 0 !important; padding: 0.15rem 1rem; }
+  .contacts td:nth-child(3) { grid-column: 1 / -1; color: var(--text-soft); }
+}
+
+.support-note-box { margin-top: 2rem; }
+.support-note-box p { margin: 0; }
